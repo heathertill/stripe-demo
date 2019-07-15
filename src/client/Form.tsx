@@ -22,7 +22,7 @@ class Form extends React.Component<IFormProps, IFormState> {
                     'Content-type': 'application/json'
                 },
                 body: JSON.stringify({ token, amount })
-            })
+            });
             // redirect, clear inputs, thanks alert
         } catch (err) {
             throw err;

@@ -9,7 +9,7 @@ router.get('/api/hello', (req, res, next) => {
 
 // ('removed for security') this is from strip secret key
 // do not post this file to github!!!
-const stripe = new stripeLoader('removed for security');
+const stripe = new stripeLoader('sk_test_1KmPvWfYKhYC4hPi4FOO6GAy009yinMOY0');
 
 const charge = (token: string, amt: number) => {
     return stripe.charges.create({
@@ -24,7 +24,6 @@ const charge = (token: string, amt: number) => {
 router.post('/api/donate', async (req, res, next) => {
     try {
         let data = await charge(req.body.token.id, req.body.amount);
-        console.log(data);
         res.send('Charged!')
     } catch (e) {
         console.log(e);
